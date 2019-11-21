@@ -1,0 +1,1 @@
+Deprotonation of the aminofulvene 1 with LiCH(SiMe3)2 provides 2, which reacts with MCl4 (M = Zr or Hf) by intramolecular NMe2H elimination and coupling of the fulvene moieties to form complex 3 or 4. This reaction is a useful synthetic pathway to allyl-bridged ansa-metallocenes, especially those with a conjugated 14π electron system. R' = dimethylamino.

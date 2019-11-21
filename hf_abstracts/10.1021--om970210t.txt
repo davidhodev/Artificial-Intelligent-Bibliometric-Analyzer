@@ -1,0 +1,1 @@
+New zirconocene complexes Cp *[Cp(CH2)n-NMe2]ZrCl2 (n = 2, 3) and Cp[Cp(CH2)nCH(CH3)2]-ZrCl 2 (n = 1, 2) catalyze, in conjunction with 2 equiv of n-BuLi, dehydrocoupling polymerization of phenylsilane to afford high-molecular-weight poly(phenylsilanes) (Mw > 104). 29Si NMR reveals that the microstructure of the resulting polymers is predominantly syndiotactic.

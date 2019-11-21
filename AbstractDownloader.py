@@ -15,6 +15,13 @@ to download abstracts to train our neural network.
 '''
 Get all API Keys
 '''
+def getAPIKeys():
+	springerNatureAPIKey = ""
+	file = open("APIKeys.txt","r")
+	for line in file:
+		if "SpringerNatureApiKey =" in line:
+			springerNatureAPIKey = line[23:]
+	return springerNatureAPIKey
 
 
 
@@ -23,10 +30,10 @@ Retreives the abstracts from the Springer Nature API
 API gives a JSON that needs to be parsed.
 Make sure to enter your own Springer Nature API key
 '''
-def springerNatureAbstracts(searchTerm, destination):
+def springerNatureAbstracts(searchTerm, destination, springerNatureAPIKey):
 	doiAbstractDictionary = {}
     #API KEY
-	with urllib.request.urlopen("http://api.springernature.com/meta/v2/json?q=title:%22"+searchTerm+"%22&s=1&p=100&api_key=1a9041505fecd88e690023546c5d857f") as url:
+	with urllib.request.urlopen("http://api.springernature.com/meta/v2/json?q=title:%22"+searchTerm+"%22&s=1&p=100&api_key="+springerNatureAPIKey) as url:
 		data = [json.loads(url.read().decode())]
 		with open('requests.json', 'w') as outfile:
 			json.dump(data[0], outfile)
@@ -36,7 +43,7 @@ def springerNatureAbstracts(searchTerm, destination):
 
 	print("Number of Results from Springer Nature: ", totalNumberOfAbstracts)
 	for i in range(0,totalNumberOfAbstracts//100):
-		with urllib.request.urlopen("http://api.springernature.com/meta/v2/json?q=title:%22"+searchTerm+"%22&s="+ str(i*100)+ "&p=100&api_key=1a9041505fecd88e690023546c5d857f") as url:
+		with urllib.request.urlopen("http://api.springernature.com/meta/v2/json?q=title:%22"+searchTerm+"%22&s="+ str(i*100)+ "&p=100&api_key="+springerNatureAPIKey) as url:
 			data.append(json.loads(url.read().decode()))
 
     # Going through and creating a dictionry with the DOI as the key and the abstract as the value
@@ -106,8 +113,12 @@ def generateAbstracts():
 	if not os.path.exists(destination):
 		os.makedirs(destination)
 
+	springerNatureAPIKey = getAPIKeys()
+	if springerNatureAPIKey == "Please Fill with your API Key":
+		print("Error: Please fill out the API Key")
+		return
 	elsevierAbstracts(search, destination)
-	springerNatureAbstracts(search, destination)
+	springerNatureAbstracts(search, destination, springerNatureAPIKey)
 
 
 
