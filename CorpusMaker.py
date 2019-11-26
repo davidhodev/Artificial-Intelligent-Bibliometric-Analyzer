@@ -36,12 +36,15 @@ def BuildDictionaryFromAbstracts(directory):
     newCorpus = ""
     count = 0
     # Removes Copyrights and All Rights Reserved
-    sentences = tokenize.sent_tokenize(corpus)
-    for sentence in sentences:
-        if "©" in sentence or "copyright" in sentence:
-            count += 1
-        else:
-            newCorpus += sentence + " "
+    sentencesWithLineBreaks = []
+    for sentenceWithLineBreaks in corpus.splitlines():
+        sentences = tokenize.sent_tokenize(sentenceWithLineBreaks)
+        for sentence in sentences:
+            if "©" in sentence or "copyright" in sentence:
+                count += 1
+            else:
+                newCorpus += sentence + " "
+        newCorpus += "\n"
     corpus = newCorpus
     print(count, "removed Copyrights")
 
@@ -50,6 +53,18 @@ def BuildDictionaryFromAbstracts(directory):
     corpus = re.sub("alumoxane", "aluminoxane", corpus)
     corpus = re.sub("all rights reserved.", "", corpus)
     corpus = re.sub("all rights reserved", "", corpus)
+    corpus = re.sub(r"\s\(\s\d+\s\)\s"," <count> ", corpus)
+    corpus = re.sub(r"\s\(\s\d+\w\s\)\s"," <count> ", corpus)
+
+    corpus = corpus.replace("(i)", "(I)")
+    corpus = corpus.replace("(ii)", "(II)")
+    corpus = corpus.replace("(iii)", "(III)")
+    corpus = corpus.replace("(iv)", "(IV)")
+    corpus = corpus.replace("( i )", "( I )")
+    corpus = corpus.replace("( ii )", "( II )")
+    corpus = corpus.replace("( iii )", "( III )")
+    corpus = corpus.replace("( iv )", "( IV )")
+
 
 
     with open(path+'/AbstractCorpi.txt', 'w') as f:
