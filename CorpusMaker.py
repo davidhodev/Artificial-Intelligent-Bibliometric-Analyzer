@@ -15,7 +15,7 @@ path = os.getcwd()
 text_processor = MaterialsTextProcessor()
 wordDictionary = {}
 
-def BuildDictionaryFromAbstracts(directory):
+def makeCorpus(directory, modelName):
     totalNumberOfAbstracts = 0
     corpus = ''
     abstractFiles = os.listdir(str(directory))
@@ -55,6 +55,16 @@ def BuildDictionaryFromAbstracts(directory):
     corpus = re.sub("all rights reserved", "", corpus)
     corpus = re.sub(r"\s\(\s\d+\s\)\s"," <count> ", corpus)
     corpus = re.sub(r"\s\(\s\d+\w\s\)\s"," <count> ", corpus)
+    allPolyParenthesis = re.findall(r"poly\(\w+\)", corpus)
+    for polyParenthesis in allPolyParenthesis:
+        wordWithoutParenthesis = polyParenthesis.replace(')',"")
+        wordWithoutParenthesis = wordWithoutParenthesis.replace('(',"")
+        corpus.replace(polyParenthesis, wordWithoutParenthesis)
+
+
+    corpus = corpus.replace("polypropene", "polypropylene")
+    corpus = corpus.replace("polyethene", "polyethylene")
+
 
     corpus = corpus.replace("(i)", "(I)")
     corpus = corpus.replace("(ii)", "(II)")
@@ -65,16 +75,14 @@ def BuildDictionaryFromAbstracts(directory):
     corpus = corpus.replace("( iii )", "( III )")
     corpus = corpus.replace("( iv )", "( IV )")
 
-
-
-    with open(path+'/AbstractCorpi.txt', 'w') as f:
+    with open(path+'/mat2vec/training/data/'+modelName+".txt", 'w') as f:
         f.write(corpus)
         f.close()
 
-
 def main():
     directory = input('Enter the name of the folder you wish to use to make your corpus\n')
-    BuildDictionaryFromAbstracts(directory + "/")
+    name = input('What would you like to call your corpus\n' )
+    makeCorpus(directory + "/", name)
     print("DONE!")
 
 if __name__ == "__main__":
