@@ -6,13 +6,27 @@ AIBA is an Artificially Intelligent Natural Language Processor that can be used 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Downloading Abstracts
 
 What things you need to install the software and how to install them
 
 ```
 Give examples
 ```
+
+### Creating the Corpus
+
+### Phrase To Vector
+
+### Resave as Word2Vec to Tensor File
+
+### Downloading Abstracts
+
+### Generate Data and MetaData
+```
+python3 -m gensim.scripts.word2vec2tensor -i ~/Python_Codes/AIBA/Artificial-Intelligent-Bibliometric-Analyzer/mat2vec/training/models/CompleteProjectorModel -o 100SG
+```
+
 
 ### Installing
 
