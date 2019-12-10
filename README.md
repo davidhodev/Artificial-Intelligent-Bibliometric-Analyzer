@@ -60,8 +60,8 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **David Ho** - *Initial work* - [PurpleBooth](https://github.com/davidhodev)
-* **Albert Shkolnik** - *Initial work* - [PurpleBooth](https://github.com/davidhodev)
+* **David Ho** - *Initial work* - [Github](https://github.com/davidhodev)
+* **Albert Shkolnik** - *Initial work*
 
 ## License
 
