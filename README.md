@@ -1,2 +1,2 @@
-# Artificial-Intelligent-Bibliometric-Analyzer
-AIBA
+# Artificial Intelligent Bibliometric Analyzer: AIBA
+
