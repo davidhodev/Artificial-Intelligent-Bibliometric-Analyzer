@@ -53,13 +53,16 @@ def makeCorpus(directory, modelName):
     corpus = re.sub("alumoxane", "aluminoxane", corpus)
     corpus = re.sub("all rights reserved.", "", corpus)
     corpus = re.sub("all rights reserved", "", corpus)
+    '''
     corpus = re.sub(r"\s\(\s\d+\s\)\s"," <count> ", corpus)
     corpus = re.sub(r"\s\(\s\d+\w\s\)\s"," <count> ", corpus)
+
     allPolyParenthesis = re.findall(r"poly\(\w+\)", corpus)
     for polyParenthesis in allPolyParenthesis:
         wordWithoutParenthesis = polyParenthesis.replace(')',"")
         wordWithoutParenthesis = wordWithoutParenthesis.replace('(',"")
         corpus.replace(polyParenthesis, wordWithoutParenthesis)
+    '''
 
 
     corpus = corpus.replace("polypropene", "polypropylene")
