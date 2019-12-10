@@ -16,7 +16,7 @@ Give examples
 
 ## Usage
 ### Downloading Abstracts
-Run the AbstractDownloader.py file in order to download Abstracts under a certain keyword you will enter. Do not forget to create your own SpringerNature and Elsevier API Keys.
+Run the AbstractDownloader.py file in order to download Abstracts under a certain keyword you will enter. Do not forget to create your own SpringerNature and Elsevier API Keys. Add these API Keys into APIKeys.txt
 
 ```
 python3 AbstractDownloader.py
