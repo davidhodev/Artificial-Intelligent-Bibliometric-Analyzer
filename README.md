@@ -2,17 +2,26 @@
 
 AIBA is an Artificially Intelligent Natural Language Processor that can be used to group chemical reagants based on past academic research.
 
-## Getting Started
+## Set Up
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Downloading Abstracts
 
 What things you need to install the software and how to install them
 
 ```
 Give examples
 ```
+
+
+
+## Usage
+### Downloading Abstracts
+Run the AbstractDownloader.py file in order to download Abstracts under a certain keyword you will enter. Do not forget to create your own SpringerNature and Elsevier API Keys.
+
+```
+python3 AbstractDownloader.py
+```
+This will download all abstracts with your keyword and can be run several times until completion. The abstracts will be downloaded with the DOI of the abstract as the names of files.
 
 ### Creating the Corpus
 
@@ -24,7 +33,7 @@ Give examples
 
 ### Generate Data and MetaData
 ```
-python3 -m gensim.scripts.word2vec2tensor -i ~/Python_Codes/AIBA/Artificial-Intelligent-Bibliometric-Analyzer/mat2vec/training/models/CompleteProjectorModel -o 100SG
+python3 -m gensim.scripts.word2vec2tensor -i ~[Path to your Model] -o [Output e.g. 100SG for 100 Skip Gram]
 ```
 
 
@@ -54,16 +63,6 @@ Explain what these tests test and why
 ```
 Give an example
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
 
 Add additional notes about how to deploy this on a live system
 
