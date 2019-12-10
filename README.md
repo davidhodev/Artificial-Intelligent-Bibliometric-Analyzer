@@ -70,7 +70,7 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Mat2Vec](https://github.com/materialsintelligence/mat2vec) - The Machine Learning Language Processor
-* [MIT Article](https://www.nature.com/articles/s41586-019-1335-8#Sec9) - The MIT Article in which this research branched off of.
+* [Research Article](https://www.nature.com/articles/s41586-019-1335-8#Sec9) - The Google / Berkeley Article in which this research branched off of.
 
 ## Authors
 
