@@ -6,17 +6,17 @@ AIBA is an Artificially Intelligent Natural Language Processor that can be used 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-What things you need to install the software and how to install them
+Pybliometrics
 
 ```
-Give examples
+pip3 install pybliometrics
 ```
 
 
 
 ## Usage
 ### Downloading Abstracts
-Run the AbstractDownloader.py file in order to download Abstracts under a certain keyword you will enter. Do not forget to create your own SpringerNature and Elsevier API Keys. Add these API Keys into APIKeys.txt
+Run the AbstractDownloader.py file in order to download Abstracts under a certain keyword you will enter. Do not forget to create your own SpringerNature and Elsevier API Keys. Add these API Keys into APIKeys.txt. For the Elsevier API Key, open the config file ``` open ~/.scopus/config.ini ``` and enter your API Key in the correct field.
 
 ```
 python3 AbstractDownloader.py
