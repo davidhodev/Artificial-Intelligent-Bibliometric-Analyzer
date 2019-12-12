@@ -12,7 +12,10 @@ Pybliometrics
 pip3 install pybliometrics
 ```
 
-
+Now navigate to the root folder of this repository and run the following command: 
+```
+pip install --ignore-installed -r requirements.txt
+```
 
 ## Usage
 ### Downloading Abstracts
@@ -24,16 +27,23 @@ python3 AbstractDownloader.py
 This will download all abstracts with your keyword and can be run several times until completion. The abstracts will be downloaded with the DOI of the abstract as the names of files.
 
 ### Creating the Corpus
+Once you have the downloaded abstracts, you can create a corpus for your abstracts. Just run the CorpusMaker python file
+```
+python3 CorpusMaker.py
+```
 
 ### Phrase To Vector
+Now we want to convert our corpus to phrase2vec. Navigate to the mat2vec folder, training, and run the phrase2vec.py. For help, run ```python3 phrase2vec.py --help ```
+
 
 ### Resave as Word2Vec to Tensor File
+Now resave the generated model to the tensor model. Run the NewModel.py code.
+```python3 NewModel.py```
 
-### Downloading Abstracts
 
 ### Generate Data and MetaData
 ```
-python3 -m gensim.scripts.word2vec2tensor -i ~[Path to your Model] -o [Output e.g. 100SG for 100 Skip Gram]
+python3 -m gensim.scripts.word2vec2tensor -i ~[Path to your Tensor Model] -o [Output e.g. 100SG for 100 Skip Gram]
 ```
 
 
