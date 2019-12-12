@@ -74,6 +74,7 @@ Add additional notes about how to deploy this on a live system
 ## Authors
 
 * **David Ho** - *Initial work* - [Github](https://github.com/davidhodev)
+* **Neil Ferraro** - *Initial work*
 * **Albert Shkolnik** - *Initial work*
 
 ## License
