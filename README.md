@@ -68,8 +68,8 @@ Add additional notes about how to deploy this on a live system
 * **David Ho** - [Github](https://github.com/davidhodev)
 * **Neil Ferraro**
 * **Albert Shkolnik**
-* **Benjamin Rizkin* 
-* **Hartman Labs* 
+* **Benjamin Rizkin** 
+* **Hartman Labs** 
 
 ## License
 
