@@ -48,12 +48,12 @@ python3 -m gensim.scripts.word2vec2tensor -i ~[Path to your Tensor Model] -o [Ou
 
 
 
-### Break down into end to end tests
+### Break down into tests
 
-Test the Regime!
+We have a preset list of analogies of approximately 40,000 analogies to test the model you decide to create. All you have to do is feed your models into TestRegime.py in order to see the best model for your anologies, whether you choose to use your own or ours.
 
 ```
-Give an example
+python3 TestRegime.py
 ```
 
 Add additional notes about how to deploy this on a live system
@@ -65,9 +65,11 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **David Ho** - *Initial work* - [Github](https://github.com/davidhodev)
-* **Neil Ferraro** - *Initial work*
-* **Albert Shkolnik** - *Initial work*
+* **David Ho** - [Github](https://github.com/davidhodev)
+* **Neil Ferraro**
+* **Albert Shkolnik**
+* **Benjamin Rizkin* 
+* **Hartman Labs* 
 
 ## License
 
