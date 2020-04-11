@@ -2,80 +2,74 @@
 
 AIBA is an Artificially Intelligent Natural Language Processor that can be used to group chemical reagants based on past academic research.
 
-## Getting Started
+## Set Up
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+Pybliometrics
+
+```
+pip3 install pybliometrics
+```
+
+Now navigate to the root folder of this repository and run the following command: 
+```
+pip install --ignore-installed -r requirements.txt
+```
+
+## Usage
 ### Downloading Abstracts
-
-What things you need to install the software and how to install them
+Run the AbstractDownloader.py file in order to download Abstracts under a certain keyword you will enter. Do not forget to create your own SpringerNature and Elsevier API Keys. Add these API Keys into APIKeys.txt. For the Elsevier API Key, open the config file ``` open ~/.scopus/config.ini ``` and enter your API Key in the correct field.
 
 ```
-Give examples
+python3 AbstractDownloader.py
 ```
+This will download all abstracts with your keyword and can be run several times until completion. The abstracts will be downloaded with the DOI of the abstract as the names of files.
 
 ### Creating the Corpus
+Once you have the downloaded abstracts, you can create a corpus for your abstracts. Just run the CorpusMaker python file
+```
+python3 CorpusMaker.py
+```
 
 ### Phrase To Vector
+Now we want to convert our corpus to phrase2vec. Navigate to the mat2vec folder, training, and run the phrase2vec.py. For help, run ```python3 phrase2vec.py --help ```
+
 
 ### Resave as Word2Vec to Tensor File
+Now resave the generated model to the tensor model. Run the NewModel.py code.
+```python3 NewModel.py```
 
-### Downloading Abstracts
 
 ### Generate Data and MetaData
 ```
-python3 -m gensim.scripts.word2vec2tensor -i ~/Python_Codes/AIBA/Artificial-Intelligent-Bibliometric-Analyzer/mat2vec/training/models/CompleteProjectorModel -o 100SG
+python3 -m gensim.scripts.word2vec2tensor -i ~[Path to your Tensor Model] -o [Output e.g. 100SG for 100 Skip Gram]
 ```
 
 
-### Installing
 
-A step by step series of examples that tell you how to get a development env running
+### Break down into tests
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+We have a preset list of analogies of approximately 40,000 analogies to test the model you decide to create. All you have to do is feed your models into TestRegime.py in order to see the best model for your anologies, whether you choose to use your own or ours.
 
 ```
-until finished
+python3 TestRegime.py
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
 
 Add additional notes about how to deploy this on a live system
 
 ## Built With
 
 * [Mat2Vec](https://github.com/materialsintelligence/mat2vec) - The Machine Learning Language Processor
-* [MIT Article](https://www.nature.com/articles/s41586-019-1335-8#Sec9) - The MIT Article in which this research branched off of.
+* [Research Article](https://www.nature.com/articles/s41586-019-1335-8#Sec9) - The Google / Berkeley Article in which this research branched off of.
 
 ## Authors
 
-* **David Ho** - *Initial work* - [Github](https://github.com/davidhodev)
-* **Albert Shkolnik** - *Initial work*
+* **David Ho** - [Github](https://github.com/davidhodev)
+* **Neil Ferraro**
+* **Albert Shkolnik**
+* **Benjamin Rizkin** 
+* **Hartman Labs** 
 
 ## License
 
