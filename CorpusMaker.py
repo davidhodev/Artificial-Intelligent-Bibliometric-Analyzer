@@ -14,6 +14,7 @@ from string import punctuation
 path = os.getcwd()
 text_processor = MaterialsTextProcessor()
 wordDictionary = {}
+finalWordDictionary = {}
 
 def makeCorpus(directory, modelName):
     totalNumberOfAbstracts = 0
@@ -30,6 +31,7 @@ def makeCorpus(directory, modelName):
         newAbstract = ''
         for word in processedAbstract[0]:
             newAbstract = newAbstract + word + ' '
+            wordDictionary[word] = 1
         corpus = corpus + newAbstract + '\n'
         infile.close()
 
@@ -53,6 +55,9 @@ def makeCorpus(directory, modelName):
     corpus = re.sub("alumoxane", "aluminoxane", corpus)
     corpus = re.sub("all rights reserved.", "", corpus)
     corpus = re.sub("all rights reserved", "", corpus)
+    corpus = re.sub("®", "", corpus)
+    corpus = re.sub("rac-", "", corpus)
+    corpus = re.sub(" - ", "-", corpus)
     '''
     corpus = re.sub(r"\s\(\s\d+\s\)\s"," <count> ", corpus)
     corpus = re.sub(r"\s\(\s\d+\w\s\)\s"," <count> ", corpus)
@@ -68,19 +73,65 @@ def makeCorpus(directory, modelName):
     corpus = corpus.replace("polypropene", "polypropylene")
     corpus = corpus.replace("polyethene", "polyethylene")
 
+    corpus = corpus.replace("octene-1", "1-octene")
+    corpus = corpus.replace("hexene-1", "1-hexene")
+
+    corpus = corpus.replace("titanocenium", "titanocene")
+    corpus = corpus.replace("zirconocenium", "zirconocene")
+    corpus = corpus.replace("hafnocenium", "hafnocene")
+
 
     corpus = corpus.replace("(i)", "(I)")
     corpus = corpus.replace("(ii)", "(II)")
     corpus = corpus.replace("(iii)", "(III)")
     corpus = corpus.replace("(iv)", "(IV)")
-    corpus = corpus.replace("( i )", "( I )")
-    corpus = corpus.replace("( ii )", "( II )")
-    corpus = corpus.replace("( iii )", "( III )")
-    corpus = corpus.replace("( iv )", "( IV )")
+    corpus = corpus.replace("( i )", "(I)")
+    corpus = corpus.replace("( ii )", "(II)")
+    corpus = corpus.replace("( iii )", "(III)")
+    corpus = corpus.replace("( iv )", "(IV)")
+    corpus = corpus.replace("( I )", "(I)")
+    corpus = corpus.replace("( II )", "(II)")
+    corpus = corpus.replace("( III )", "(III)")
+    corpus = corpus.replace("( IV )", "(IV)")
+
+    corpus = corpus.replace("(C ", "(C")
+    corpus = corpus.replace("Cp'", "Cp")
+    corpus = corpus.replace("cp2", "Cp2")
+    corpus = corpus.replace("Cp2 ", "Cp2")
+    corpus = corpus.replace(" 2Zr", "2Zr")
+
+    corpus = corpus.replace("g mol", "gmol")
+    corpus = corpus.replace("g*mol", "gmol")
+    corpus = corpus.replace("Me 2", "Me2")
+
+    corpus = corpus.replace("Cp2Ind2", "Cp2[Ind]2")
+    corpus = corpus.replace("Cp2(Ind)2", "Cp2[Ind]2")
+    corpus = corpus.replace("Et(Ind)2", "Et[Ind]2")
+    corpus = corpus.replace("Et2(Ind)2", "Et2[Ind]2")
+
+    corpus = corpus.replace("CPh3B(C6F5)4", "[CPh3][B(C6F5)4]")
+    corpus = corpus.replace("[Ph3C][B(C6F5)4]", "[CPh3][B(C6F5)4]")
+    corpus = corpus.replace("[Ph3C][B(C6F5)4", "[CPh3][B(C6F5)4]")
+    corpus = corpus.replace("Ph3CB(C6F5)4", "[CPh3][B(C6F5)4]")
+
+
+    corpus = corpus.replace("(n-BuCp)", "(nBuCp)")
+    corpus = corpus.replace("i-Bu3Al", "Al(iBu)3")
+    corpus = corpus.replace("AliBu3", "Al(iBu)3")
+
+    corpus = corpus.replace("methylaluminoxane(MAO)", "methylaluminoxane ( MAO )")
+    corpus = corpus.replace("Cp2ZrCl ", "Cp2ZrCl2 ")
 
     with open(path+'/mat2vec/training/data/'+modelName+".txt", 'w') as f:
         f.write(corpus)
         f.close()
+
+    finalTotalCount = corpus.split()
+    for word in finalTotalCount:
+        finalWordDictionary[word] = 1
+    print("WORD DICT: ", len(wordDictionary))
+    print("FINAL WORD DICT: ", len(finalWordDictionary))
+    print("HERE: ", finalWordDictionary)
 
 def main():
     directory = input('Enter the name of the folder you wish to use to make your corpus\n')

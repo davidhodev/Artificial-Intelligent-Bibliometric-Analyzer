@@ -1,0 +1,1 @@
+Chiral boron-bridged ansa-type zirconocenes can be prepared in a few simple steps; various donor molecules such as Et2O, THF or PMe3 undergo complexation at boron leading to catalysts having vastly different catalytic properties in Ziegler-Natta polymerization of propene; the PMe3-containing catalyst is the most active and stereoselective (96% isotacticity).

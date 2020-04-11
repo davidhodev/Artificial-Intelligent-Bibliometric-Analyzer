@@ -1,0 +1,1 @@
+A convenient new one-pot synthesis makes accessible CH2-and CHR-bridged ligand precursors of the general formula C13H9-n,R′nCHRC5H5 (n = 0, 2; R = H, Alkyl; R′ = H, Alkyl, Hal). From these the syndiospecific zirconocene catalysts (C13H8-nR′nCHR-C5H4)ZrCl2 (n = 0, 2; R = H, Me; R′ = H, Br) for the polymerization of propylene can be prepared.
