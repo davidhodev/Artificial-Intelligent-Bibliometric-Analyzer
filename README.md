@@ -66,10 +66,10 @@ Add additional notes about how to deploy this on a live system
 ## Authors
 
 * **David Ho** - [Github](https://github.com/davidhodev)
-* **Neil Ferraro**
-* **Albert Shkolnik**
-* **Benjamin Rizkin** 
-* **Hartman Labs** 
+* **Albert S. Shkolnik**
+* **Neil J. Ferraro**
+* **Benjamin A. Rizkin** 
+* **Ryan L. Hartman** 
 
 ## License
 
