@@ -65,11 +65,12 @@ Add additional notes about how to deploy this on a live system
 
 ## Authors
 
-* **David Ho** - [Github](https://github.com/davidhodev)
-* **Albert S. Shkolnik**
-* **Neil J. Ferraro**
-* **Benjamin A. Rizkin** 
-* **Ryan L. Hartman** 
+* **David Ho** - [Github](https://github.com/davidhodev) : Software, Methodology, Visualization, Investigation, Validation, Writing- Original draft preparation.
+* **Albert S. Shkolnik** :  Writing- Reviewing and Editing, Visualization, Software.
+* **Neil J. Ferraro** : Data Curation
+* **Benjamin A. Rizkin** :  Writing- Reviewing and Editing, Conceptualization.
+* **Ryan L. Hartman** : : Supervision, Conceptualization, Writing-Reviewing and Editing, Investigation
+
 
 ## License
 
